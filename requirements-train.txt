@@ -7,4 +7,3 @@ scikit-learn==0.23.1
 xgboost==1.0.0
 fastparquet==0.3.2
 s3fs==0.4.2
-prometheus_client==0.7.1

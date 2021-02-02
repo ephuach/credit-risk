@@ -1,6 +1,5 @@
 bdrk[model-monitoring]==0.6.0
 fastparquet==0.3.2
-numpy==1.19.1
 lightgbm==2.3.1
 pandas==1.0.3
 scikit-learn==0.23.1

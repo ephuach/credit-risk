@@ -9,7 +9,8 @@ import pandas as pd
 from .constants import TARGET
 from .utils import load_data, onehot_enc
 
-BUCKET = "s3://bedrock-sample/credit/"
+# BUCKET = "s3://bedrock-sample/credit/"
+BUCKET = "s3://bdrk-uob-workstream2-sandbox-raw-data/home-credit-default-risk/"
 # BUCKET = "data/"
 
 BINARY_MAP = {

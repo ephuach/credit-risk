@@ -9,7 +9,8 @@ import shap
 from preprocess.utils import get_execution_date
 from preprocess.constants import TARGET
 
-TMP_BUCKET = "s3://span-production-temp-data/"
+# TMP_BUCKET = "s3://span-production-temp-data/"
+TMP_BUCKET = "s3://bdrk-uob-workstream2-sandbox-raw-data/home-credit-default-risk/"
 # TMP_BUCKET = "data/"
 
 

@@ -9,7 +9,8 @@ from preprocess.installments_payments import installments_payments
 from preprocess.credit_card_balance import credit_card_balance
 from preprocess.utils import timer, get_execution_date
 
-TMP_BUCKET = "s3://span-production-temp-data/"
+# TMP_BUCKET = "s3://span-production-temp-data/"
+TMP_BUCKET = "s3://bdrk-uob-workstream2-sandbox-raw-data/home-credit-default-risk/"
 # TMP_BUCKET = "data/"
 
 

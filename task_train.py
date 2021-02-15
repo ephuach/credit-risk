@@ -19,7 +19,8 @@ from sklearn.model_selection import train_test_split
 from preprocess.constants import FEATURES, FEATURES_PRUNED, TARGET, CONFIG_FAI
 from preprocess.utils import load_data, get_execution_date
 
-TMP_BUCKET = "s3://span-production-temp-data/"
+# TMP_BUCKET = "s3://span-production-temp-data/"
+TMP_BUCKET = "s3://bdrk-uob-workstream2-sandbox-raw-data/home-credit-default-risk/"
 # TMP_BUCKET = "data/"
 
 MODEL_VER = os.getenv("MODEL_VER")

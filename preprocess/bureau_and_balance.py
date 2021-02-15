@@ -5,7 +5,8 @@ import pandas as pd
 
 from .utils import load_data, onehot_enc
 
-BUCKET = "s3://bedrock-sample/credit/"
+# BUCKET = "s3://bedrock-sample/credit/"
+BUCKET = "s3://bdrk-uob-workstream2-sandbox-raw-data/home-credit-default-risk/"
 # BUCKET = "data/"
 
 BUREAU_CATEGORICAL_COLS = ['CREDIT_ACTIVE', 'CREDIT_CURRENCY', 'CREDIT_TYPE']

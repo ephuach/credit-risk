@@ -69,10 +69,13 @@ def get_metrics():
     return Response(body, content_type=content_type)
 
 
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["GET", "POST"])
 def get_prob():
     """Returns probability."""
-    return {"prob": predict_score(request.json)}
+    if request.method == 'POST':
+        return {"prob": predict_score(request.json)}
+    else:
+        return "<h1 style='color:blue'>Hello Home-Credit-Risk-Default Model Server!</h1>"
 
 
 def main():

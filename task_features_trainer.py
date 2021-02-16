@@ -8,10 +8,13 @@ from preprocess.pos_cash import pos_cash
 from preprocess.installments_payments import installments_payments
 from preprocess.credit_card_balance import credit_card_balance
 from preprocess.utils import timer, get_execution_date
+import os
 
 # TMP_BUCKET = "s3://span-production-temp-data/"
 TMP_BUCKET = "s3://bdrk-uob-workstream2-sandbox-raw-data/home-credit-default-risk/"
 # TMP_BUCKET = "data/"
+STEP_FEATURES_TRAINER_SKIP = os.getenv("STEP_FEATURES_TRAINER_SKIP")
+STEP_FEATURES_TRAINER_S3_SUFFIX_PATH = os.getenv("STEP_FEATURES_TRAINER_S3_SUFFIX_PATH")
 
 
 def generate_features(execution_date):
@@ -56,13 +59,16 @@ def generate_features(execution_date):
 
     print("\nSave train data")
     print("  Train data shape:", df.shape)
-    df.to_csv(TMP_BUCKET + "credit_train/train.csv", index=False)
+    df.to_csv(TMP_BUCKET + "credit_train/" + STEP_FEATURES_TRAINER_S3_SUFFIX_PATH + "/train.csv", index=False)
 
 
 def main():
     execution_date = get_execution_date()
     print(execution_date.strftime("\nExecution date is %Y-%m-%d"))
-    generate_features(execution_date)
+    if STEP_FEATURES_TRAINER_SKIP.lower() == "false":
+        generate_features(execution_date)
+    else:
+        print("Skipping step")
 
 
 if __name__ == "__main__":

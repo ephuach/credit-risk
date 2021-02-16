@@ -29,6 +29,7 @@ MAX_DEPTH = os.getenv("MAX_DEPTH")
 OUTPUT_MODEL_PATH = "/artefact/model.pkl"
 FEATURE_COLS_PATH = "/artefact/feature_cols.pkl"
 
+STEP_FEATURES_TRAINER_S3_SUFFIX_PATH = os.getenv("STEP_FEATURES_TRAINER_S3_SUFFIX_PATH")
 
 def get_feats_to_use():
     if MODEL_VER == "xgboost-pruned" or MODEL_VER == "lightgbm-pruned":
@@ -99,7 +100,7 @@ def compute_log_metrics(clf, x_val, y_val):
 def trainer(execution_date):
     """Entry point to perform training."""
     print("\nLoad train data")
-    data = load_data(TMP_BUCKET + "credit_train/train.csv")
+    data = load_data(TMP_BUCKET + "credit_train/" + STEP_FEATURES_TRAINER_S3_SUFFIX_PATH + "/train.csv")
     data = data.fillna(0)
     print("  Train data shape:", data.shape)
 

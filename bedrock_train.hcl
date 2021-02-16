@@ -47,8 +47,8 @@ train {
         MODEL_VER = "lightgbm"
         NUM_LEAVES = "16"
         MAX_DEPTH = "4"
-        STEP_FEATURES_TRAINER_SKIP = 'False'
-        STEP_FEATURES_TRAINER_S3_SUFFIX_PATH = 'Victor'
+        STEP_FEATURES_TRAINER_SKIP = "False"
+        STEP_FEATURES_TRAINER_S3_SUFFIX_PATH = "your_name_here"
     }
 }
 

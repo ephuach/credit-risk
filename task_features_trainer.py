@@ -67,8 +67,6 @@ def main():
     print(execution_date.strftime("\nExecution date is %Y-%m-%d"))
     if STEP_FEATURES_TRAINER_SKIP.lower() == "false":
         generate_features(execution_date)
-    else:
-        print("Skipping step")
 
 
 if __name__ == "__main__":

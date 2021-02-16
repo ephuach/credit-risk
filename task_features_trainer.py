@@ -67,6 +67,11 @@ def main():
     print(execution_date.strftime("\nExecution date is %Y-%m-%d"))
     if STEP_FEATURES_TRAINER_SKIP.lower() == "false":
         generate_features(execution_date)
+    else:
+        # This is only a simulation step of preprocessing raw data
+        # and saving the preprocessed data in application/ and auxiliary/.
+        import time
+        time.sleep(30)
 
 
 if __name__ == "__main__":

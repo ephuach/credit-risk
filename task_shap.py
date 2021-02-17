@@ -8,10 +8,12 @@ import shap
 
 from preprocess.utils import get_execution_date
 from preprocess.constants import TARGET
+import os
 
 # TMP_BUCKET = "s3://span-production-temp-data/"
 TMP_BUCKET = "s3://bdrk-uob-workstream2-sandbox-raw-data/home-credit-default-risk/"
 # TMP_BUCKET = "data/"
+STEP_FEATURES_TRAINER_S3_SUFFIX_PATH = os.getenv("STEP_FEATURES_TRAINER_S3_SUFFIX_PATH")
 
 
 def load_data(execution_date):
@@ -45,7 +47,9 @@ def compute_shap(execution_date):
     print("  Output data shape:", output_df.shape)
 
     print("\nSave output data")
-    output_df.to_csv(TMP_BUCKET + "credit_shap/shap.csv", index=False)
+#     output_df.to_csv(TMP_BUCKET + "credit_shap/shap.csv", index=False)
+    output_df.to_csv(TMP_BUCKET + "credit_shap/" + STEP_FEATURES_TRAINER_S3_SUFFIX_PATH + "/shap.csv", index=False)
+
 
 
 def main():

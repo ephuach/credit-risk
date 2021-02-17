@@ -26,6 +26,7 @@ TEST_DATA_PATH = "output/test.gz.parquet"
 
 MODEL_VER = os.getenv("MODEL_VER")
 NUM_LEAVES = os.getenv("NUM_LEAVES")
+EARLY_STOPPING_ROUNDS = int(os.getenv("EARLY_STOPPING_ROUNDS"))
 MAX_DEPTH = os.getenv("MAX_DEPTH")
 OUTPUT_MODEL_PATH = "/artefact/model.pkl"
 FEATURE_COLS_PATH = "/artefact/feature_cols.pkl"
@@ -120,7 +121,7 @@ def trainer(execution_date):
             eval_set=[(x_train, y_train), (x_valid, y_valid)],
             eval_metric='auc',
             verbose=200,
-            early_stopping_rounds=200)
+            early_stopping_rounds=EARLY_STOPPING_ROUNDS)
     print("  Time taken = {:.0f} s".format(time.time() - start))
 
     print("\nEvaluate")

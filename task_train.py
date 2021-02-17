@@ -22,6 +22,7 @@ from preprocess.utils import load_data, get_execution_date
 # TMP_BUCKET = "s3://span-production-temp-data/"
 TMP_BUCKET = "s3://bdrk-uob-workstream2-sandbox-raw-data/home-credit-default-risk/"
 # TMP_BUCKET = "data/"
+TEST_DATA_PATH = "output/test.gz.parquet"
 
 MODEL_VER = os.getenv("MODEL_VER")
 NUM_LEAVES = os.getenv("NUM_LEAVES")
@@ -147,7 +148,9 @@ def trainer(execution_date):
 
     # To simulate redis, save to artefact
     from shutil import copyfile
-    copyfile("output/test.gz.parquet", "/artefact/test.gz.parquet")
+#     copyfile("output/test.gz.parquet", "/artefact/test.gz.parquet")
+    test_df = pd.read_parquet(TMP_BUCKET+"test_data/test.gz.parquet")
+    test_df.to_parquet("/artefact/test.gz.parquet")
 
 
 def main():

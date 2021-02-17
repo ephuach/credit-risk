@@ -150,9 +150,9 @@ def trainer(execution_date):
 
     # To simulate redis, save to artefact
     from shutil import copyfile
-#     copyfile("output/test.gz.parquet", "/artefact/test.gz.parquet")
-    test_df = pd.read_parquet(TMP_BUCKET+"test_data/test.gz.parquet")
-    test_df.to_parquet("/artefact/test.gz.parquet")
+    copyfile("output/test.gz.parquet", "/artefact/test.gz.parquet")
+#     test_df = pd.read_parquet(TMP_BUCKET+"test_data/test.gz.parquet")
+#     test_df.to_parquet("/artefact/test.gz.parquet")
 
 
 def main():

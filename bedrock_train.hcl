@@ -45,7 +45,7 @@ train {
     parameters {
         EXECUTION_DATE = "2019-07-01"
         MODEL_VER = "lightgbm"
-        NUM_LEAVES = "36"
+        NUM_LEAVES = "18"
         MAX_DEPTH = "8"
         EARLY_STOPPING_ROUNDS = "50"
         STEP_FEATURES_TRAINER_SKIP = "False"
